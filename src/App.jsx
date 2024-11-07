@@ -8,18 +8,13 @@ import About from './About.jsx'
 import Services from './Services.jsx'
 import Portfolio from './Portfolio.jsx'
 import Footer from './Footer.jsx'
+import List from './List.jsx'
 
 function App() {
 
   return (
     <>
-    <Navbar />
-    <Carousel />
-    <Cards />
-    <About />
-    <Services />
-    <Portfolio />
-    <Footer />
+    <List />
     </>
   )
 }
