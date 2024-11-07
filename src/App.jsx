@@ -1,20 +1,23 @@
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
-import './Project.css'
-import Navbar from './Navbar.jsx'
-import Carousel  from './Carousel.jsx'
-import Cards from './Cards.jsx'
-import About from './About.jsx'
-import Services from './Services.jsx'
-import Portfolio from './Portfolio.jsx'
-import Footer from './Footer.jsx'
-import List from './List.jsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import ListPage from './pages/ListPage.jsx';
+import AddList from './pages/AddList.jsx';
 
 function App() {
+  const [items, setItems] = useState([]);
 
   return (
     <>
-    <List />
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<ListPage />} items={items} setItems={setItems} />
+          <Route path='/add' element={<AddList />} items={items} setItems={setItems} />
+        </Routes>
+      </div>
+    </Router>
     </>
   )
 }
