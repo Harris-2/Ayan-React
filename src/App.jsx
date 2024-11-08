@@ -1,25 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import ListPage from './pages/ListPage.jsx';
-import AddList from './pages/AddList.jsx';
+import 'bootstrap/dist/js/bootstrap';
+import ListPage from './pages/ListPage';
+import AddList from './pages/AddList';
+import { useState } from 'react';
 
-function App() {
+function App(){
+
   const [items, setItems] = useState([]);
-
-  return (
+  return(
     <>
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<ListPage />} items={items} setItems={setItems} />
-          <Route path='/add' element={<AddList />} items={items} setItems={setItems} />
+          <Route path='/' element={<ListPage items={items} setItems={setItems} /> } />
+          <Route path='/add' element={<AddList setItems={setItems} items={items}  />  } />
         </Routes>
       </div>
     </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

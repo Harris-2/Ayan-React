@@ -4,26 +4,23 @@ import { useNavigate } from "react-router-dom";
 function AddList({items, setItems}){
 
     const [name, setName] = useState('');
-
     const navigate = useNavigate();
 
-    const handleAdd = () =>{
+    const handleAdd = () => {
+    if (name.trim()) {
         const newItem = {
             id: Date.now(), name,
         };
-
         setItems([...items, newItem]);
         navigate('/');
-    }
-
+    };
+}
     return(
         <>
         <div className="container">
-            <div>
-            <h1>Add List Page</h1>
-                <input type="text" value={name} className="form-control w-25 mt-4" placeholder="Enter item" onChange={(e) => setName(e.target.value)} />
-            </div>
-            <button onClick={handleAdd} className="btn btn-primary btn-sm mt-4">Add item</button>
+            <h1>Add New Item</h1>
+            <input type="text" className="form-control w-25 my-4" value={name} onChange={(e) => setName(e.target.value)} />
+            <button className="btn btn-primary" onClick={handleAdd} >Add item</button>
         </div>
         </>
     );
