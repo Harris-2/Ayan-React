@@ -9,14 +9,17 @@ function ListPage({items, setItems}){
 
     return(
         <>
-        <div className="container">
-            <div className="text-end mt-4">
-            <Link to='/add' className="btn btn-primary" >Add new </Link>
+        <div className="container mt-5">
+            <div className="d-flex justify-content-between">
+                <h1>List Group</h1>
+                <div>
+                    <Link to='/add' className="btn btn-primary" >Add new </Link>
+                </div>
             </div>
-            <h1>List Group</h1>
             <ul className="list-group">
                 {items.length === 0 ? ( <li className="list-group-item">No items available</li> ) : (
-                items.map(item => <li className="list-group-item d-flex justify-content-between fs-4 border border-dark" key={item.id}> {item.name} 
+            items.map(item => <li className="list-group-item d-flex justify-content-between fs-4 border border-dark" key={item.id}> {item.name}
+                <Link to={`/edit/${item.id}`} className="btn btn-info">Edit</Link>
                 <button className="btn btn-danger" onClick={() => handleDelete(item.id)}>Delete</button> </li> )
                 )}
             </ul>
