@@ -5,16 +5,24 @@ import ListPage from "./pages/ListPage";
 import AddList from "./pages/AddList";
 import EditList from "./pages/EditList";
 import { useState } from "react";
+import State from "./State";
+import City from "./City";
+import Profile from "./Profile";
 
 function App() {
   const [items, setItems] = useState([]);
   return (
     <>
+      <h1 className="text-center">App page</h1>
+      <Profile />
+
       <Router>
         <div>
           <Routes>
+            <Route path="/state" element={<State />} />
+
             <Route
-              path="/"
+              path="/list"
               element={<ListPage items={items} setItems={setItems} />}
             />
             <Route
@@ -22,6 +30,7 @@ function App() {
               element={<AddList setItems={setItems} items={items} />}
             />
             <Route path="/edit/:id" element={<EditList items={items} setItems={setItems} />} />
+
           </Routes>
         </div>
       </Router>

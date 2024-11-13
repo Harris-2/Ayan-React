@@ -1,0 +1,14 @@
+JSX (jS + HTML)
+Components
+Props
+States
+Events
+Conditional Rendering
+List Rendering
+Unique Key identifier
+React Router
+Routes/Route
+Link/Navigate
+
+Form Handling
+API
